@@ -1,6 +1,6 @@
 variable "sg-name" {
     type = string
-    default = "roboshop-all-aws"
+    default = "roboshop-all-aws-1"
 }
 
 variable "inbound-from-port" {
