@@ -8,3 +8,7 @@ data "aws_ami" "rhel" {
     values = ["RHEL-9.*_HVM-*-x86_64-*"]
   }
 }
+
+data "aws_security_group" "allow_all" {
+  id = "sg-06159e41f1b2c1aa3"
+}
