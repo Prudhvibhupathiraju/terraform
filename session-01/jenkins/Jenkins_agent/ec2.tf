@@ -19,15 +19,10 @@ resource "aws_instance" "jenkins" {
                     # Import key
                     sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 
-                    # Install Jenkins
-                    sudo yum install -y jenkins
-
-                    # Start Jenkins
-                    sudo systemctl daemon-reexec
-                    sudo systemctl start jenkins
-                    sudo systemctl enable jenkins
+                    sudo yum install git -y     
+                    
                     EOF
   tags = {
-    Name = "Jenkins"
+    Name = "Jenkins Agent"
   }
 }
