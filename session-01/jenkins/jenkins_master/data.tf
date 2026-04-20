@@ -12,3 +12,4 @@ data "aws_ami" "rhel" {
 data "aws_security_group" "allow_all" {
   id = "sg-06159e41f1b2c1aa3"
 }
+
