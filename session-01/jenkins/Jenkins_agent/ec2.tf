@@ -2,7 +2,7 @@ resource "aws_instance" "jenkins" {
   ami           = data.aws_ami.rhel.id
   instance_type = "t3.small"
   vpc_security_group_ids = [data.aws_security_group.allow_all.id] # this means list
-  key_name = "Ayaansh-wrk-Mumbai"
+  key_name = "prudhvi-key-mumbai"
   user_data = <<-EOF
                     #!/bin/bash
                     set -ex
