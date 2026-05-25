@@ -1,0 +1,71 @@
+pipeline {
+    agent {
+        node {
+            label 'AGENT-1'
+        }
+    }
+
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        disableConcurrentBuilds()
+    }
+
+    stages {
+
+        stage('Init') {
+            steps {
+                sh """
+                terraform init -reconfigure
+                """
+            }
+        }
+
+        stage('Plan') {
+            steps {
+                sh """
+                terraform plan
+                """
+            }
+        }
+
+        stage('creation') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+            }
+
+            steps {
+                sh """
+                terraform apply --auto-approve
+                """
+            }
+        }
+        stage('destruction') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+            }
+
+            steps {
+                sh """
+                terraform destroy --auto-approve
+                """
+            }
+        }
+    }
+
+    post {
+
+        always {
+            echo 'this will run every time'
+        }
+
+        failure {
+            echo 'this will run when there is failure'
+        }
+
+        success {
+            echo 'this will run when there is success'
+        }
+    }
+}
