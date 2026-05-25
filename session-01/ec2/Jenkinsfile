@@ -15,7 +15,7 @@ pipeline {
         stage('Init') {
             steps {
                 sh """
-                cd /session-01/ec2
+                cd session-01/ec2
                 terraform init -reconfigure
                 """
             }
