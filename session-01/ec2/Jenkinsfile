@@ -59,8 +59,9 @@ pipeline {
         stage('destruction') {
              when {
                 expression {
-                    params.action == 'destroy'
+                    params.action == 'apply'
                 }
+            }
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
