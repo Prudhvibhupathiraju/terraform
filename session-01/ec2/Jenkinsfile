@@ -59,7 +59,7 @@ pipeline {
         stage('destruction') {
              when {
                 expression {
-                    params.action == 'apply'
+                    params.action == 'destroy'
                 }
             }
             input {
