@@ -40,6 +40,7 @@ pipeline {
 
         stage('creation') {
              when {
+                beforeInput true 
                 expression {
                     params.action == 'apply'
                 }
@@ -58,6 +59,7 @@ pipeline {
         }
         stage('destruction') {
              when {
+                beforeInput true 
                 expression {
                     params.action == 'destroy'
                 }
